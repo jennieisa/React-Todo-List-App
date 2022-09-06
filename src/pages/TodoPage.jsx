@@ -8,15 +8,36 @@ import DoneTodo from '../components/DoneTodo.jsx';
 import UnDoneTodo from '../components/UnDoneTodo.jsx';
 
 const TodoPage = () => {
-    const [todos, setTodos] = useState({});
+    const [todos, setTodos] = useState([
+        {
+            title: "Städa",
+            description: "Damsuga, damma, plocka",
+            done: false
+        },
+        {
+            title: "Diska",
+            description: "",
+            done: true
+        },
+    ]);
+
+    const addTodo = (title, description) => {
+        let newTodo = {
+            title, 
+            description,
+            done: false
+        }
+        console.log(title, description)
+        setTodos([...todos, newTodo]);
+    }
 
     return (
         <>
             <Header heading={'Todo-lista'} />
             <main>
-                <AddTodoForm />
-                <UnDoneTodo />
-                <DoneTodo />
+                <AddTodoForm addTodo={addTodo}/>
+                <UnDoneTodo todos={todos}/>
+                <DoneTodo todos={todos}/>
             </main>
         </>
     )
