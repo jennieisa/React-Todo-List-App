@@ -1,5 +1,6 @@
 //Functionality
 import { useState } from 'react';
+import { FaBeer } from 'react-icons/fa'
 
 //Under components
 import Header from '../components/Header.jsx';
@@ -35,6 +36,7 @@ const TodoPage = () => {
         <>
             <Header heading={'Todo-lista'} />
             <main>
+                <FaBeer/>
                 <AddTodoForm addTodo={addTodo}/>
                 <UnDoneTodo todos={todos}/>
                 <DoneTodo todos={todos}/>

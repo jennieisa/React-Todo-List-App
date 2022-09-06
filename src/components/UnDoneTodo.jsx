@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+//Under components
+import Todo from "./Todo";
+
 const UnDoneTodo = ({todos}) => {
     const [showMore, setShowMore] = useState(false);
     return (
@@ -10,12 +13,7 @@ const UnDoneTodo = ({todos}) => {
                     {todos.map((todo, index) => {
                         if (todo.done === false) {
                             return (
-                                <li key={index}>
-                                    <p>{todo.title}</p>
-                                    <p>{todo.description}</p>
-                                    <button>Klart</button>
-                                    <button>Redigera</button>
-                                </li>
+                                <Todo key={index} title={todo.title} description={todo.description} done={todo.done}/>
                             )
                         }
                     })} 
